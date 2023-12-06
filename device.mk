@@ -8,24 +8,15 @@
 LOCAL_PATH := device/infinix/X6817
 
 # A/B
+AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    gz \
-    lk \
-    logo \
-    md1img \
-    preloader \
-    product \
-    scp \
-    spmfw \
-    sspm \
     system \
+    vendor \
+    product \
     system_ext \
-    vbmeta \
-    vbmeta_system \
+    boot \
     vbmeta_vendor \
-    vendor
+    vbmeta_system
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -41,10 +32,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 31
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # API
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Health HAL
 PRODUCT_PACKAGES += \
@@ -54,12 +45,8 @@ PRODUCT_PACKAGES += \
 
 # Boot Control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl.recovery \
-android.hardware.boot@1.1-mtkimpl.recovery \
-    android.hardware.boot@1.2-mtkimpl \
-android.hardware.boot@1.1-mtkimpl \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+android.hardware.boot@1.2-mtkimpl.recovery \
+android.hardware.boot@1.2-mtkimpl 
     
 
 PRODUCT_PACKAGES_DEBUG += \
